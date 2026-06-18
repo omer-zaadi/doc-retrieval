@@ -26,7 +26,7 @@ A Python module that indexes PDF and DOCX files into PostgreSQL using Gemini emb
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/doc-retrieval.git
+git clone https://github.com/omer-zaadi/doc-retrieval.git
 cd doc-retrieval
 ```
 
