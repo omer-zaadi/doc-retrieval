@@ -13,6 +13,8 @@ logging.basicConfig(
     format="%(name)s [%(levelname)s] %(message)s",
 )
 
+SIMILARITY_THRESHOLD = 0.55
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Semantic search over indexed document chunks.")
@@ -38,6 +40,8 @@ def main() -> None:
     except Exception as exc:
         print(f"Error: {exc}", file=sys.stderr)
         sys.exit(1)
+
+    results = [(cid, ct, fn, st, ca, d) for cid, ct, fn, st, ca, d in results if (1 - d) >= SIMILARITY_THRESHOLD]
 
     if not results:
         print("No results found.")
